@@ -11,9 +11,9 @@ export class ProductsService {
       id: 1,
       name: 'Product 1',
       description: 'product 1 description',
-      price: 12345,
-      image: '',
-      stock: 678,
+      price: 10000,
+      stock: 300,
+      image: 'https://i.imgur.com/U4iGx1j.jpeg',
     },
   ];
 
