@@ -5,16 +5,19 @@ import {
   IsNotEmpty,
   IsPositive,
 } from 'class-validator';
-import { PartialType } from '@nestjs/swagger';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 export class CreateProductDto {
+  @ApiProperty({ description: 'Product name' })
   @IsString()
   @IsNotEmpty()
   readonly name: string;
 
+  @ApiProperty({ description: 'Product description' })
   @IsString()
   @IsNotEmpty()
   readonly description: string;
 
+  @ApiProperty({ description: 'Product price' })
   @IsNumber()
   @IsNotEmpty()
   @IsPositive()
