@@ -26,7 +26,6 @@ export class UsersService {
   findAll() {
     const apiKey = this.configService.apiKey;
     const dbName = this.configService.database.name;
-    console.log(apiKey, dbName);
     return this.users;
   }
 
