@@ -4,12 +4,12 @@ import { ConfigService } from '@nestjs/config';
 @Injectable()
 export class AppService {
   constructor(
-    private configService: ConfigService,
     @Inject('TASKS') private tasks: any[],
+    private config: ConfigService,
   ) {}
   getHello(): string {
-    console.log(this.tasks);
-    const apiKey = this.configService.get('API_KEY');
-    return `Hello from Store API! ${apiKey}`;
+    const apiKey = this.config.get<string>('API_KEY');
+    const dbName = this.config.get<string>('DATABASE_NAME');
+    return `Hello from Store API! ${apiKey} ${dbName}`;
   }
 }

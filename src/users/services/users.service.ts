@@ -10,7 +10,7 @@ import { ProductsService } from './../../products/services/products.service';
 export class UsersService {
   constructor(
     private productsService: ProductsService,
-    private configService: ConfigService,
+    private config: ConfigService,
   ) {}
 
   private counterId = 1;
@@ -24,8 +24,8 @@ export class UsersService {
   ];
 
   findAll() {
-    const apiKey = this.configService.get('API_KEY');
-    const dbName = this.configService.get('DATABASE_NAME');
+    const apiKey = this.config.get<string>('API_KEY');
+    const dbName = this.config.get<string>('DATABASE_NAME');
     console.log(apiKey, dbName);
     return this.users;
   }

@@ -7,10 +7,11 @@ import { ProductsModule } from './products/products.module';
 import { HttpModule, HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
 import { DatabaseModule } from './database/database.module';
+import { enviroments } from './enviroments';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: enviroments[process.env.NODE_ENV ?? 'dev'],
       isGlobal: true,
     }),
     HttpModule,
